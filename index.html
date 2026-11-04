@@ -1,1 +1,256 @@
-<h1 style="color:blue">green</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ilham | Paralegal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #14213d;
+    --navy-light: #1f2f54;
+    --gold: #c9a227;
+    --cream: #faf7f0;
+    --text: #2b2b2b;
+    --muted: #6b6b6b;
+    --card: #ffffff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    background: var(--cream);
+    line-height: 1.7;
+  }
+  a { color: inherit; text-decoration: none; }
+
+  /* Navigation */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(20, 33, 61, 0.96);
+    padding: 1rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  nav .logo {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--gold); font-size: 1.6rem; font-weight: 700; letter-spacing: 1px;
+  }
+  nav ul { list-style: none; display: flex; gap: 1.8rem; }
+  nav ul a { color: #e8e8e8; font-size: 0.9rem; letter-spacing: 0.5px; transition: color .2s; }
+  nav ul a:hover { color: var(--gold); }
+
+  /* Hero */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: #fff; text-align: center;
+    padding: 7rem 1.5rem 6rem;
+  }
+  .hero .avatar {
+    width: 120px; height: 120px; border-radius: 50%;
+    background: var(--gold); color: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 700;
+    margin: 0 auto 1.8rem; border: 4px solid rgba(255,255,255,0.2);
+  }
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 7vw, 4.5rem); font-weight: 600; letter-spacing: 1px;
+  }
+  .hero .title { color: var(--gold); font-size: 1.1rem; letter-spacing: 3px; text-transform: uppercase; margin: 0.5rem 0 1.5rem; }
+  .hero p.tagline { max-width: 600px; margin: 0 auto 2.5rem; color: #d0d4dd; font-weight: 300; }
+  .btn {
+    display: inline-block; padding: 0.85rem 2rem; border: 2px solid var(--gold);
+    color: var(--gold); border-radius: 2px; letter-spacing: 1px; font-size: 0.9rem;
+    transition: all .25s;
+  }
+  .btn:hover { background: var(--gold); color: var(--navy); }
+
+  /* Sections */
+  section { padding: 5rem 1.5rem; }
+  .container { max-width: 1000px; margin: 0 auto; }
+  h2 {
+    font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; color: var(--navy);
+    text-align: center; margin-bottom: 0.5rem;
+  }
+  .divider { width: 60px; height: 3px; background: var(--gold); margin: 0 auto 3rem; }
+
+  /* About */
+  .about p { max-width: 720px; margin: 0 auto 1.2rem; text-align: center; color: var(--muted); font-size: 1.05rem; }
+
+  /* Skills */
+  .skills { background: #fff; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; }
+  .card {
+    background: var(--card); padding: 2rem 1.6rem; border-top: 3px solid var(--gold);
+    box-shadow: 0 4px 20px rgba(20,33,61,0.07); border-radius: 4px;
+    transition: transform .25s, box-shadow .25s;
+  }
+  .card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(20,33,61,0.12); }
+  .card .icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+  .card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--navy); margin-bottom: 0.5rem; }
+  .card p { color: var(--muted); font-size: 0.93rem; }
+
+  /* Experience */
+  .timeline { position: relative; max-width: 720px; margin: 0 auto; padding-left: 2rem; border-left: 2px solid var(--gold); }
+  .item { margin-bottom: 2.5rem; position: relative; }
+  .item::before {
+    content: ""; position: absolute; left: -2.55rem; top: 0.4rem;
+    width: 14px; height: 14px; border-radius: 50%; background: var(--navy); border: 3px solid var(--gold);
+  }
+  .item .date { color: var(--gold); font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; }
+  .item h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--navy); }
+  .item .org { color: var(--muted); font-style: italic; margin-bottom: 0.6rem; }
+  .item ul { padding-left: 1.2rem; color: var(--muted); font-size: 0.95rem; }
+
+  /* Values */
+  .values { background: var(--navy); color: #fff; }
+  .values h2 { color: #fff; }
+  .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+  .chip {
+    padding: 0.7rem 1.6rem; border-radius: 30px; font-weight: 500;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15);
+  }
+  .chip:nth-child(1) { color: #6fa8ff; }
+  .chip:nth-child(2) { color: #6fd39a; }
+  .chip:nth-child(3) { color: #ff7b7b; }
+  .chip:nth-child(4) { color: #ffd966; }
+  .chip:nth-child(5) { color: #c39bff; }
+  .chip:nth-child(6) { color: #ffab66; }
+
+  /* Contact */
+  .contact { text-align: center; }
+  .contact p { color: var(--muted); margin-bottom: 2rem; }
+  .contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; }
+  .contact-links a {
+    background: var(--navy); color: #fff; padding: 0.9rem 1.8rem; border-radius: 3px;
+    font-size: 0.92rem; transition: background .2s;
+  }
+  .contact-links a:hover { background: var(--gold); color: var(--navy); }
+
+  footer { background: var(--navy); color: #9aa3b5; text-align: center; padding: 1.5rem; font-size: 0.85rem; }
+
+  @media (max-width: 640px) {
+    nav ul { display: none; }
+    section { padding: 3.5rem 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Ilham</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Expertise</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="avatar">I</div>
+  <h1>Ilham</h1>
+  <div class="title">Paralegal &middot; A.W. Law LLC</div>
+  <p class="tagline">Supporting lawyers and clients with precise research, organised case management, and clear, reliable documentation.</p>
+  <a href="#contact" class="btn">Get in Touch</a>
+</header>
+
+<section id="about" class="about">
+  <div class="container">
+    <h2>About Me</h2>
+    <div class="divider"></div>
+    <p>I am a paralegal at A.W. Law LLC, where I work closely with the legal team to keep matters running smoothly from intake to resolution.</p>
+    <p>I take pride in attention to detail, meeting deadlines, and making complex information easy to follow, so the lawyers I support can focus on advising their clients.</p>
+  </div>
+</section>
+
+<section id="skills" class="skills">
+  <div class="container">
+    <h2>Areas of Expertise</h2>
+    <div class="divider"></div>
+    <div class="grid">
+      <div class="card">
+        <div class="icon">⚖️</div>
+        <h3>Legal Research</h3>
+        <p>Locating and summarising case law, statutes and precedents to support legal arguments.</p>
+      </div>
+      <div class="card">
+        <div class="icon">📝</div>
+        <h3>Document Drafting</h3>
+        <p>Preparing correspondence, affidavits, agreements and court documents for lawyer review.</p>
+      </div>
+      <div class="card">
+        <div class="icon">📁</div>
+        <h3>Case Management</h3>
+        <p>Organising files, tracking deadlines and maintaining accurate records across matters.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🤝</div>
+        <h3>Client Liaison</h3>
+        <p>Communicating with clients professionally and keeping them informed throughout their matter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <h2>Experience</h2>
+    <div class="divider"></div>
+    <div class="timeline">
+      <div class="item">
+        <div class="date">[Start Year] &ndash; Present</div>
+        <h3>Paralegal</h3>
+        <div class="org">A.W. Law LLC</div>
+        <ul>
+          <li>Assist lawyers with research, drafting and preparation of case documents</li>
+          <li>Manage case files, court filings and key deadlines</li>
+          <li>Serve as a point of contact for clients on matter updates</li>
+        </ul>
+      </div>
+      <div class="item">
+        <div class="date">[Year]</div>
+        <h3>[Your Qualification]</h3>
+        <div class="org">[Institution Name]</div>
+        <ul>
+          <li>[Add a highlight, award or relevant coursework]</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="values">
+  <div class="container">
+    <h2>What I Bring</h2>
+    <div class="divider"></div>
+    <div class="chips">
+      <span class="chip">Accuracy</span>
+      <span class="chip">Reliability</span>
+      <span class="chip">Discretion</span>
+      <span class="chip">Organisation</span>
+      <span class="chip">Clear Communication</span>
+      <span class="chip">Teamwork</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container">
+    <h2>Contact</h2>
+    <div class="divider"></div>
+    <p>Feel free to reach out for professional enquiries.</p>
+    <div class="contact-links">
+      <a href="mailto:your.email@example.com">✉ Email Me</a>
+      <a href="https://www.linkedin.com/in/your-profile" target="_blank">in LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Ilham &middot; Paralegal, A.W. Law LLC
+</footer>
+
+</body>
+</html>
